@@ -1,99 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GITANJALI STUDIO | Live Service Status</title>
-<style>
-:root{--green:#28a745;--red:#dc3545;--blue:#0b5394;--bg:#f2f4f7}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg)}
-.wrap{max-width:720px;margin:20px auto;padding:16px}
-.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
-h1{text-align:center;color:var(--blue);margin:0}
-.sub{text-align:center;color:#666;margin:6px 0 18px}
-.status{padding:18px;border-radius:12px;text-align:center;color:#fff;font-size:32px;font-weight:bold}
-.section{margin-top:18px}
-.section h2{margin:0 0 10px;background:var(--blue);color:#fff;padding:10px;border-radius:8px;font-size:20px}
-ul{margin:0;padding-left:22px}
-li{margin:8px 0}
-.btn{display:block;text-align:center;text-decoration:none;color:#fff;font-weight:bold;padding:14px;border-radius:10px;margin-top:10px}
-.wa{background:#25D366}.call{background:#444}.google{background:#4285F4}
-.small{text-align:center;color:#777;margin-top:16px;font-size:13px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GITANJALI STUDIO</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+    }
+
+    .c {
+      max-width: 760px;
+      margin: 20px auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0b5394;
+    }
+
+    .sub {
+      text-align: center;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      padding: 18px;
+      border-radius: 12px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      background: #0b5394;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: white;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .g { background: #25D366; }
+    .b { background: #4285F4; }
+    .k { background: #444; }
+
+    .small {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    const SHOP_STATUS = "OPEN";
+
+    const UPDATE1 = "✅ Annapurna Form Fill-up Going On";
+    const UPDATE2 = "✅ PM-KISAN e-KYC Working";
+    const UPDATE3 = "";
+
+    const MORNING = "10:30 AM – 12:30 PM";
+    const EVENING = "5:00 PM – 9:30 PM";
+
+    const WHATSAPP = "8158990252";
+
+    const GOOGLE = "https://share.google/dRiQYsiEzH2WK8xYW";
+    const MAPS = "https://google.com/maps/place/Gitanjali+Studio/data=!4m2!3m1!1s0x0:0x8d1f185cda183259?sa=X&ved=1t:2428&ictx=111";
+    const REVIEW = "https://g.page/r/CVkyGNpcGB-NECk/review";
+
+    const FB_PROFILE = "https://www.facebook.com/gitanjalistudiokalagachia";
+    const FB_PAGE = "https://www.facebook.com/profile.php?id=61574257673326";
+  </script>
 </head>
+
 <body>
 
-<!-- ========= EDIT ONLY THIS SECTION ========= -->
+<div class="c">
+  <div class="card">
 
-<script>
-const SHOP_STATUS="OPEN"; // OPEN or CLOSED
+    <h1>🏪 GITANJALI STUDIO</h1>
+    <div class="sub">Live Service Status</div>
 
-const UPDATE1="✅ Annapurna Form Fill-up Going On";
-const UPDATE2="✅ PM-KISAN e-KYC Working";
-const UPDATE3="✅ Panchayat recruit Form Fill-up Going On";
+    <div id="status" class="status"></div>
 
-const MORNING="10:30 AM – 12:30 PM";
-const EVENING="5:00 PM – 9:30 PM";
+    <h2>📢 Today's Updates</h2>
+    <ul id="u"></ul>
 
-const WHATSAPP="8158990252";
-const GOOGLE="https://share.google/dRiQYsiEzH2WK8xYW";
-const MAPS="https://maps.google.com/?q=Kalagachia+Bus+Stand+Khejuri";
-</script>
+    <h2>🕒 Shop Timings</h2>
+    <p>🌞 Morning: <b id="m"></b></p>
+    <p>🌆 Evening: <b id="e"></b></p>
 
-<!-- ======= DO NOT EDIT BELOW ======= -->
+    <h2>📍 Address</h2>
+    <p>Kalagachia Bus Stand, Khejuri, Purba Medinipur</p>
 
-<div class="wrap">
-<div class="card">
-<h1>🏪 GITANJALI STUDIO</h1>
-<div class="sub">Live Service Status</div>
+    <a id="wa" class="btn g">💬 WhatsApp</a>
+    <a class="btn k" href="tel:+918158990252">📞 Call Now</a>
+    <a id="maps" class="btn b">📍 Google Maps</a>
+    <a id="gb" class="btn b">🏢 Google Business</a>
+    <a id="rv" class="btn b">⭐ Google Review</a>
+    <a id="fp" class="btn b">📘 Facebook Profile</a>
+    <a id="pg" class="btn b">👍 Facebook Page</a>
 
-<div id="statusBox" class="status"></div>
+    <div id="upd" class="small"></div>
 
-<div class="section">
-<h2>📢 Today's Updates</h2>
-<ul id="updates"></ul>
-</div>
-
-<div class="section">
-<h2>🕒 Shop Timings</h2>
-<p>🌞 Morning: <b id="m"></b></p>
-<p>🌆 Evening: <b id="e"></b></p>
-</div>
-
-<div class="section">
-<h2>📍 Location</h2>
-<p>Kalagachia Bus Stand, Khejuri, Purba Medinipur</p>
-</div>
-
-<a class="btn wa" id="wa">💬 WhatsApp</a>
-<a class="btn call" href="tel:+918158990252">📞 Call Now</a>
-<a class="btn google" id="gb">⭐ Google Business</a>
-<a class="btn google" id="maps">📍 Google Maps</a>
-
-<div class="small" id="updated"></div>
-</div>
+  </div>
 </div>
 
 <script>
-const s=document.getElementById("statusBox");
-if(SHOP_STATUS==="OPEN"){
- s.style.background="var(--green)";
- s.innerHTML="🟢 OPEN NOW";
-}else{
- s.style.background="var(--red)";
- s.innerHTML="🔴 CLOSED NOW";
-}
-const list=document.getElementById("updates");
-[UPDATE1,UPDATE2,UPDATE3].filter(x=>x.trim()).forEach(t=>{
- const li=document.createElement("li");li.textContent=t;list.appendChild(li);
-});
-document.getElementById("m").textContent=MORNING;
-document.getElementById("e").textContent=EVENING;
-document.getElementById("wa").href="https://wa.me/91"+WHATSAPP;
-document.getElementById("gb").href=GOOGLE;
-document.getElementById("maps").href=MAPS;
-const d=new Date();
-document.getElementById("updated").textContent="Last Updated: "+d.toLocaleString();
+  const status = document.getElementById("status");
+  const updates = document.getElementById("u");
+  const morning = document.getElementById("m");
+  const evening = document.getElementById("e");
+
+  if (SHOP_STATUS === "OPEN") {
+    status.style.background = "#28a745";
+    status.innerHTML = "🟢 OPEN NOW";
+  } else {
+    status.style.background = "#dc3545";
+    status.innerHTML = "🔴 CLOSED NOW";
+  }
+
+  [UPDATE1, UPDATE2, UPDATE3]
+    .filter(Boolean)
+    .forEach(text => {
+      const li = document.createElement("li");
+      li.textContent = text;
+      updates.appendChild(li);
+    });
+
+  morning.textContent = MORNING;
+  evening.textContent = EVENING;
+
+  document.getElementById("wa").href =
+    "https://wa.me/91" + WHATSAPP;
+
+  document.getElementById("maps").href = MAPS;
+  document.getElementById("gb").href = GOOGLE;
+  document.getElementById("rv").href = REVIEW;
+  document.getElementById("fp").href = FB_PROFILE;
+  document.getElementById("pg").href = FB_PAGE;
+
+  document.getElementById("upd").textContent =
+    "Last Updated: " + new Date().toLocaleString();
 </script>
 
 </body>
